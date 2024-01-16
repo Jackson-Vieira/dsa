@@ -1,0 +1,61 @@
+name: ci-python
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+defaults:
+  run:
+    shell: bash
+    working-directory: .name: ci-python
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+defaults:
+  run:
+    shell: bash
+    working-directory: .
+
+jobs:
+  ci:
+    name: Lint and test solutions
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os:
+          - "ubuntu-22.04"
+        python-version:
+          - "3.12.0"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4.1.1
+
+      - name: Use Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4.8.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Lint solutions
+        run: black . --check
+
+      - name: Test solutions
+        run: coverage run -m pytest
+
+      - name: Print test coverage report
+        run: coverage report -m
