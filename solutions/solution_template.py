@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+
 """
 [Problem description.]
 """
+
 from typing import Dict, List, Optional, Set, Tuple
 
 
