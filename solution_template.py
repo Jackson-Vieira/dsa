@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """
 [Problem description.]
 """
@@ -16,7 +14,7 @@ class Solution:
 class Test:
     def test(self):
         """[Test description.]"""
-        case = [0]
+        input = 0
         expected = 1
 
-        assert Solution().solve(*case) == expected
+        assert Solution().solve(input) == expected
