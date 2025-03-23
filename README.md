@@ -1,5 +1,9 @@
-# DSA Leetcode
+# DSA
 
-Here I'm forced out of my comfort zone
+Data structure && Algorithms
 
-TODO: Solve more challengers and update this.
+## Plataforms
+- Leetcode
+- Beecrowd
+- Codeforces
+- OBI
